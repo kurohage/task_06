@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <title>Create</title>
     </head>
     <body>
-        <form action="{% url 'restaurant-create' %}" method="POST">
-        	{% csrf_token %}
-        	{{ form.as_p }}
-        	<input type="submit">
-        </form>
+    	<div class="container d-flex h-100">
+    		<div class="row justify-content-center">
+    			<div class="col-10">
+    				{% load crispy_forms_tags %}
+    				<form action="{% url 'restaurant-create' %}" method="POST">
+        				{% csrf_token %}
+        				{{ form|crispy }}
+        				<input type="submit" class="btn btn-success">
+        			</form>
+    			</div>
+			</div>
+		</div>
     </body>
 </html>
